@@ -1,5 +1,6 @@
 import React from 'react'
 import Profile from './Profile.jsx'
+import AddProfile from './AddProfile.jsx'
 
 export default class App extends React.Component {
     constructor(props) {
@@ -10,6 +11,23 @@ export default class App extends React.Component {
                 {name: 'Sarah', age:40, bio: 'enjoy long walks on the beach', hobbies: ['gardening', 'games']}
             ]
         }
+        this.addUser = this.addUser.bind(this)
+    }
+
+    addUser(e) {
+        this.setState(
+            {
+                profiles : this.state.profiles.concat([
+                        {
+                            name: 'John', 
+                            age:35, 
+                            bio: 'enjoy boating in lake', 
+                            hobbies: ['swimming', 'sking']
+                        }
+                    ]
+                )
+            }
+        )
     }
 
     render() {
@@ -22,6 +40,7 @@ export default class App extends React.Component {
         return(
             <div>
                 {profiles}
+                <AddProfile addUser={this.addUser}/>
             </div>
         )
     }
