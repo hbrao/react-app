@@ -1,6 +1,6 @@
 import React from 'react'
 
-//Functional component
+//Functional stateless component
 
 let Profile = props => (
     <div>
