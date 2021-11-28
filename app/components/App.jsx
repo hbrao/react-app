@@ -14,16 +14,11 @@ export default class App extends React.Component {
         this.addUser = this.addUser.bind(this)
     }
 
-    addUser(e) {
+    addUser(newProfile) {
         this.setState(
             {
                 profiles : this.state.profiles.concat([
-                        {
-                            name: 'John', 
-                            age:35, 
-                            bio: 'enjoy boating in lake', 
-                            hobbies: ['swimming', 'sking']
-                        }
+                       newProfile
                     ]
                 )
             }
