@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Profile from './Profile.jsx'
 import AddProfile from './AddProfile.jsx'
 
@@ -21,6 +21,10 @@ const Vote = ({option1, option2}) => {
     } else {
         winner = "Its a Tie !";
     }
+
+    useEffect( () => {
+        document.title = winner
+    }, [winner])
 
     return(
         <div>
