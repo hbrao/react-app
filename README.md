@@ -2,7 +2,8 @@
 
 Run the app using below commands
 
-npm install
-npm run dev
+`npm install`
+
+`npm run dev`
 
 Open http://localhost:3333 
