@@ -1,7 +1,6 @@
 import React from 'react'
 
 //Functional stateless component
-
 let Profile = props => (
     <div>
         <h3>{props.name}</h3>
