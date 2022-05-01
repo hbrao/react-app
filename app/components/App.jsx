@@ -46,15 +46,16 @@ const Vote = ({option1, option2}) => {
 export default class App extends React.Component {
     constructor(props) {
         super(props)
+        //state must be initialized inside constructor method. 
         this.state = {
             profiles : [] 
         }
+        //Bind instance methods so that they can passed directly with this reference. 
         this.addUser = this.addUser.bind(this)
     }
 
     componentDidMount() {
-        //NOTE: this.state must be initialized inside constructor method. 
-        //NOTE: Normally this is the place to write ajax request to fetch the state info from APIs. 
+        //Normally this is the place to write ajax request to fetch the state info from APIs. 
         this.setState({
             profiles : [
                 {name: 'David', age:30, bio: 'enjoys swimming and biking', hobbies: ['swimming', 'biking']}, 
