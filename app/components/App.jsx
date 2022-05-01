@@ -9,41 +9,8 @@ const AppTitle = ({name}) => (
     </div>
 )
 
-const Vote = ({option1, option2}) => {
-    const [countOption1, setCountOption1] = useState(0);
-    const [countOption2, setCountOption2] = useState(0);
-
-    let winner;
-    if( countOption1 > countOption2 ) {
-        winner = option1;
-    } else if ( countOption2 > countOption1) {
-        winner = option2;
-    } else {
-        winner = "Its a Tie !";
-    }
-
-    useEffect( () => {
-        document.title = winner
-    }, [winner])
-
-    return(
-        <div>
-            <p>Votes for {option1} : {countOption1} </p>
-            <p>Votes for {option2} : {countOption2} </p>
-            <p> Leader : {winner} </p>
-            <div>
-                <button onClick={() => setCountOption1(countOption1 + 1)}>
-                    Vote for { option1 }
-                </button>
-                <button onClick={() => setCountOption2(countOption2 + 1)}>
-                    Vote for { option2 }
-                </button>
-            </div>
-        </div>
-    )
-}
-
 export default class App extends React.Component {
+    //props is a mandatory argument
     constructor(props) {
         super(props)
         //state must be initialized inside constructor method. 
@@ -85,14 +52,52 @@ export default class App extends React.Component {
         return(
             <div>
                 <AppTitle name="React App"/>
-                {profiles}
+
+                <h1>Parent state update via Child Component</h1>
+
+                <h2>Enter new profile info :</h2>
                 <AddProfile addUser={this.addUser}/>
 
-                <p/>
+                <h2>All user profiles</h2>
+                {profiles}
+        
                 <h1>Functional Components</h1>
-                <p/>
                 <Vote option1="Democrats" option2="Republicans"/>
             </div>
         )
     }
+}
+
+const Vote = ({option1, option2}) => {
+    const [countOption1, setCountOption1] = useState(0);
+    const [countOption2, setCountOption2] = useState(0);
+
+    let winner;
+    if( countOption1 > countOption2 ) {
+        winner = option1;
+    } else if ( countOption2 > countOption1) {
+        winner = option2;
+    } else {
+        winner = "Its a Tie !";
+    }
+
+    useEffect( () => {
+        document.title = winner
+    }, [winner])
+
+    return(
+        <div>
+            <p>Votes for {option1} : {countOption1} </p>
+            <p>Votes for {option2} : {countOption2} </p>
+            <p> Leader : {winner} </p>
+            <div>
+                <button onClick={() => setCountOption1(countOption1 + 1)}>
+                    Vote for { option1 }
+                </button>
+                <button onClick={() => setCountOption2(countOption2 + 1)}>
+                    Vote for { option2 }
+                </button>
+            </div>
+        </div>
+    )
 }
