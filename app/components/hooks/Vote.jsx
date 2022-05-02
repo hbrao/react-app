@@ -13,6 +13,18 @@ const Vote = ({option1, option2}) => {
         winner = "Its a Tie !";
     }
 
+    // Effect that runs only once to fetch and initial data. 
+    // useEffect(async () => {
+    //     try {
+    //         const response = await fetch('http://localhost:3001/votes')
+    //         const {countOption1, countOption2} = await response.json();
+    //         setCountOption1(countOption1)
+    //         setCountOption2(countOption2)
+    //     } catch (error) {
+    //         console.log('Unable to fetc initial votes data ... ')
+    //     }
+    // }, []);
+
     useEffect(() => {
         document.title = winner
     }, [winner])
