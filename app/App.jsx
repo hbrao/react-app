@@ -1,10 +1,10 @@
 import React from 'react'
-import Profile from './components/Profile.jsx'
-import AddProfile from './components/AddProfile.jsx'
-import AppTitle from './components/AppTitle.jsx'
-import Vote from './components/Vote.jsx'
-import Style from './components/Style.jsx'
+import Profile from './components/stateless/Profile.jsx'
+import AddProfile from './components/child/AddProfile.jsx'
+import AppTitle from './components/stateless/AppTitle.jsx'
+import Vote from './components/hooks/Vote.jsx'
 
+//ES6 class
 export default class App extends React.Component {
     //props is a mandatory argument
     constructor(props) {
@@ -41,6 +41,7 @@ export default class App extends React.Component {
         )
     }
 
+    //Render function
     render() {
         let profiles = this.state.profiles.map( p1 => {
             return(
@@ -62,9 +63,6 @@ export default class App extends React.Component {
         
                 <h1>Functional Components</h1>
                 <Vote option1="Democrats" option2="Republicans"/>
-
-                <h1>Styled Components</h1>
-                <Style/>
             </div>
         )
     }

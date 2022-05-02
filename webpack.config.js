@@ -27,21 +27,6 @@ var config = {
           presets: ['es2015', 'react']
         }
       }
-      // ,
-      // {
-      //   test: /\.css$/,
-      //   use: [
-      //     require.resolve('style-loader'),
-      //     {
-      //       loader: require.resolve('css-loader'),
-      //       options: {
-      //           importLoaders: 1,
-      //           modules: true,
-      //           locanIdentName: "[name]__[local]____[hash:base64:5]"
-      //       },
-      //     }
-      //   ]
-      // }
     ]
   }
 }
