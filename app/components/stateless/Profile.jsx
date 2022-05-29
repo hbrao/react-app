@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Name = styled.h3`
     color: green;
     border-style: dashed;
-    border-color: aliceblue;
+    border-color: grey;
     width: 180px;
 `;
 
