@@ -6,4 +6,4 @@ Run the app using below commands
 
 `npm run dev`
 
-Open http://localhost:3333 
+Open http://127.0.0.1:3333 
