@@ -9,6 +9,7 @@
     "babel-preset-react": "^6.5.0",
     "react": "^16.7.0-alpha.0",
     "react-dom": "^16.7.0-alpha.0",
+    "styled-components": "^5.3.5",
     "webpack": "^1.13.0"
   },
   "devDependencies": {
