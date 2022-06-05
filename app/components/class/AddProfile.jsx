@@ -1,14 +1,18 @@
 import React from 'react'
 
 export default class AddProfile extends React.Component {
+    //props is a mandatory argument
     constructor(props) {
         super(props)
+        //state must be initialized
         this.state = {
             name: 'John',
             age: 21,
             bio: 'likes to swim and code',
             hobby: 'Skating'
         }
+
+        //Bind instance methods so that they can passed directly with this reference. 
         this.handleName = this.handleName.bind(this)
         this.handleAge = this.handleAge.bind(this)
         this.handleBio = this.handleBio.bind(this)
@@ -16,6 +20,7 @@ export default class AddProfile extends React.Component {
         this.handleClick = this.handleClick.bind(this)
     }
 
+    //Event handlers
     handleName(e) {
         this.setState(
             {

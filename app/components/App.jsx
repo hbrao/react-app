@@ -15,22 +15,19 @@ const Example = styled.div`
 
 //Class based React Component
 export default class App extends React.Component {
-    //props is a mandatory argument
     constructor(props) {
         super(props)
-        //state must be initialized to empty array inside constructor method
-        //as we are fetching the data in componentDidMount and updating the state
-        //which triggers the rendering of the app component again. 
         this.state = {
             profiles : [] 
         }
-        //Bind instance methods so that they can passed directly with this reference. 
         this.addUser = this.addUser.bind(this)
     }
 
     //Gets called after initial rendering of the page. 
     componentDidMount() {
-        //Normally this is the place to write ajax request to fetch the state info from APIs. 
+        //TODO Write an ajax request to fetch the state info from APIs. 
+
+        //Updating the state triggers rendering of the app component again. 
         this.setState({
             profiles : [
                 {name: 'David', age:30, bio: 'enjoys swimming and biking', hobbies: ['swimming', 'biking']}, 
@@ -50,7 +47,6 @@ export default class App extends React.Component {
         )
     }
 
-    //Render function
     render() {
         let profiles = this.state.profiles.map( p1 => {
             return(
