@@ -1,46 +1,47 @@
 import React, {useState, useEffect} from 'react'
 
 //React functional component
-const Vote = ({option1, option2}) => {
-    const [countOption1, setCountOption1] = useState(0);
-    const [countOption2, setCountOption2] = useState(0);
+const Vote = ({party1, party2}) => {
+    //hook to manage the state of votes for two parties
+    const [countParty1, setCountParty1] = useState(0);
+    const [countParty2, setCountParty2] = useState(0);
 
     let winner;
-    if( countOption1 > countOption2 ) {
-        winner = option1;
-    } else if ( countOption2 > countOption1) {
-        winner = option2;
+    if( countParty1 > countParty2 ) {
+        winner = party1;
+    } else if ( countParty2 > countParty1) {
+        winner = party2;
     } else {
         winner = "Its a Tie !";
     }
 
-    // Effect that runs only once to fetch and initial data. 
-    // useEffect(async () => {
-    //     try {
-    //         const response = await fetch('http://localhost:3001/votes')
-    //         const {countOption1, countOption2} = await response.json();
-    //         setCountOption1(countOption1)
-    //         setCountOption2(countOption2)
-    //     } catch (error) {
-    //         console.log('Unable to fetc initial votes data ... ')
-    //     }
-    // }, []);
+    //hook that runs only once to fetch and initial data. 
+    useEffect(() => {
+        try {
+            //TODO fetch initial votes from API
+            setCountParty1(21)
+            setCountParty2(20)
+        } catch (error) {
+            console.log('Unable to fetc initial votes data ... ')
+        }
+    }, []);
 
+    //hook that runs evertime winner is updated. 
     useEffect(() => {
         document.title = winner
     }, [winner])
 
     return(
         <div>
-            <p>Votes for {option1} : {countOption1} </p>
-            <p>Votes for {option2} : {countOption2} </p>
+            <p>Votes for {party1} : {countParty1} </p>
+            <p>Votes for {party2} : {countParty2} </p>
             <p> Leader : {winner} </p>
             <div>
-                <button onClick={() => setCountOption1(countOption1 + 1)}>
-                    Vote for { option1 }
+                <button onClick={() => setCountParty1(countParty1 + 1)}>
+                    Vote for { party1 }
                 </button>
-                <button onClick={() => setCountOption2(countOption2 + 1)}>
-                    Vote for { option2 }
+                <button onClick={() => setCountParty2(countParty2 + 1)}>
+                    Vote for { party2 }
                 </button>
             </div>
         </div>

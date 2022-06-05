@@ -69,8 +69,8 @@ export default class App extends React.Component {
                 </Example>
 
                 <Example>
-                    <h1>Functional Components</h1>
-                    <Vote option1="Democrats" option2="Republicans"/>
+                    <h1>Hooks</h1>
+                    <Vote party1="Democrats" party2="Republicans"/>
                 </Example>
             </div>
         )
