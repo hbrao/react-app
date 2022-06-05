@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
+//React functional component
 const Vote = ({option1, option2}) => {
     const [countOption1, setCountOption1] = useState(0);
     const [countOption2, setCountOption2] = useState(0);

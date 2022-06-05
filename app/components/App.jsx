@@ -1,10 +1,19 @@
 import React from 'react'
-import Profile from './components/stateless/Profile.jsx'
-import AddProfile from './components/child/AddProfile.jsx'
-import AppTitle from './components/stateless/AppTitle.jsx'
-import Vote from './components/hooks/Vote.jsx'
+import Profile from './functional/stateless/Profile.jsx'
+import AddProfile from './class/AddProfile.jsx'
+import AppTitle from './functional/stateless/AppTitle.jsx'
+import Vote from './functional/hooks/Vote.jsx'
+import styled from 'styled-components'
 
-//ES6 class
+const Example = styled.div`
+    display: block;
+    border-style: dashed;
+    border-color: grey;
+    padding: 10px;
+    margin-bottom: 10px;
+`;
+
+//Class based React Component
 export default class App extends React.Component {
     //props is a mandatory argument
     constructor(props) {
@@ -53,16 +62,20 @@ export default class App extends React.Component {
             <div>
                 <AppTitle name="React App"/>
 
-                <h1>Parent state update via Child Component</h1>
+                <Example>
+                    <h1>Parent / Child Component</h1>
 
-                <h2>Enter new profile info :</h2>
-                <AddProfile addUser={this.addUser}/>
+                    <h3>Enter new profile info :</h3>
+                    <AddProfile addUser={this.addUser}/>
 
-                <h2>All user profiles</h2>
-                {profiles}
-        
-                <h1>Functional Components</h1>
-                <Vote option1="Democrats" option2="Republicans"/>
+                    <h3>All user profiles</h3>
+                    {profiles}
+                </Example>
+
+                <Example>
+                    <h1>Functional Components</h1>
+                    <Vote option1="Democrats" option2="Republicans"/>
+                </Example>
             </div>
         )
     }
