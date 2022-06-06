@@ -4,10 +4,10 @@ import styled from 'styled-components'
 const Person = styled.div`
     display: block;
     position: relative;
-    width: 25%;
     border-style: dashed;
     border-color: lightblue;
     padding: 10px;
+    margin-right: 10px;
     margin-bottom: 10px;
 `;
 

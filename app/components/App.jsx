@@ -16,6 +16,9 @@ const Example = styled.div`
 `;
 
 const Profiles = styled.div`
+    display: flex;
+    justify-items: first baseline;
+    flex-wrap: wrap;
     margin-top: 10px;
     margin-bottom: 10px;
     padding-right: 10px;
