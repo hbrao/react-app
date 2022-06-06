@@ -10,8 +10,16 @@ const Example = styled.div`
     border-style: dashed;
     border-color: grey;
     padding: 10px;
+    margin-top: 10px;
     margin-bottom: 10px;
+    position: relative;
 `;
+
+const Profiles = styled.div`
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-right: 10px;
+`
 
 //Class based React Component
 export default class App extends React.Component {
@@ -64,8 +72,7 @@ export default class App extends React.Component {
                     <h3>Enter new profile info :</h3>
                     <AddProfile addUser={this.addUser}/>
 
-                    <h3>All user profiles</h3>
-                    {profiles}
+                    <Profiles>{profiles}</Profiles>
                 </Example>
 
                 <Example>
