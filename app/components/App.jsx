@@ -71,8 +71,6 @@ export default class App extends React.Component {
 
                 <Example>
                     <h1>Parent / Child Component</h1>
-
-                    <h3>Enter new profile info :</h3>
                     <AddProfile addUser={this.addUser}/>
 
                     <Profiles>{profiles}</Profiles>

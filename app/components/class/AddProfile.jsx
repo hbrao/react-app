@@ -1,4 +1,36 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const AddProfileSection = styled.section`
+    .wrapper {
+        background-color: whitesmoke;
+        list-style-type: none;
+        padding: 0;
+        border-radius: 3px;
+        width: 50%;
+    }
+    .form-row {
+        display: flex;
+        justify-content: flex-start;
+        padding: .5em;
+    }
+    .form-row > label {
+        padding: .5em 1em .5em 0;
+        flex: 1;
+    }
+    .form-row > input {
+        flex: 4;
+    }
+    .form-row > input,
+    .form-row > button {
+        padding: .5em;
+    }
+    .form-row > button {
+        background: gray;
+        color: white;
+        border: 0;
+    }
+`
 
 export default class AddProfile extends React.Component {
     //props is a mandatory argument
@@ -67,15 +99,29 @@ export default class AddProfile extends React.Component {
 
     render() {
         return(
-            <div>
-                <section>
-                    <input onChange={this.handleName} value={this.state.name} />
-                    <input onChange={this.handleAge} value={this.state.age} />
-                    <input onChange={this.handleBio} value={this.state.bio} />
-                    <input onChange={this.handleHobby} value={this.state.hobby} />
-                    <button onClick={this.handleClick}>Add Profile</button>
-                </section>
-            </div>
+            <AddProfileSection>
+                <ul class="wrapper">
+                    <li class="form-row">
+                        <label for="name">Name</label>
+                        <input id="name" onChange={this.handleName} value={this.state.name} />
+                    </li>
+                    <li class="form-row">
+                        <label for="age">Age</label>
+                        <input id="age" onChange={this.handleAge} value={this.state.age} />
+                    </li>
+                    <li class="form-row">
+                        <label for="bio">Bio</label>
+                        <input id="bio" onChange={this.handleBio} value={this.state.bio} />
+                    </li>
+                    <li class="form-row">
+                        <label for="hobby">Hobbies</label>
+                        <input id="hobby" onChange={this.handleHobby} value={this.state.hobby} />
+                    </li>
+                    <li class="form-row">
+                        <button onClick={this.handleClick}>Add Profile</button>
+                    </li>
+                </ul>
+            </AddProfileSection>
         )
     }
 }
