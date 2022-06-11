@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Person = styled.div`
-    display: block;
-    position: relative;
     border-style: dashed;
     border-color: lightblue;
     padding: 10px;

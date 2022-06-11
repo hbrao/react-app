@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const AddProfileSection = styled.section`
+const AddProfileSection = styled.div`
+    border-style: dotted;
+    width: 100%;
     .wrapper {
         background-color: whitesmoke;
         list-style-type: none;
         padding: 0;
         border-radius: 3px;
-        width: 50%;
     }
     .form-row {
         display: flex;

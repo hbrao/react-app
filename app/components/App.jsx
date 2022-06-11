@@ -7,12 +7,12 @@ import styled from 'styled-components'
 
 const Example = styled.div`
     display: block;
+    overflow: scroll;
     border-style: dashed;
     border-color: grey;
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-    position: relative;
 `;
 
 const Profiles = styled.div`
