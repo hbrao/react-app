@@ -5,7 +5,7 @@ import AppTitle from './functional/stateless/AppTitle.jsx'
 import Vote from './functional/hooks/Vote.jsx'
 import styled from 'styled-components'
 
-const Example = styled.div`
+const ExampleDiv = styled.div`
     display: block;
     overflow: scroll;
     border-style: dashed;
@@ -15,7 +15,7 @@ const Example = styled.div`
     margin-bottom: 10px;
 `;
 
-const Profiles = styled.div`
+const ProfilesDiv = styled.div`
     display: flex;
     justify-items: first baseline;
     flex-wrap: wrap;
@@ -69,17 +69,17 @@ export default class App extends React.Component {
             <div>
                 <AppTitle name="React App"/>
 
-                <Example>
+                <ExampleDiv>
                     <h1>Parent / Child Component</h1>
                     <AddProfile addUser={this.addUser}/>
 
-                    <Profiles>{profiles}</Profiles>
-                </Example>
+                    <ProfilesDiv>{profiles}</ProfilesDiv>
+                </ExampleDiv>
 
-                <Example>
+                <ExampleDiv>
                     <h1>Hooks</h1>
                     <Vote party1="Democrats" party2="Republicans"/>
-                </Example>
+                </ExampleDiv>
             </div>
         )
     }
