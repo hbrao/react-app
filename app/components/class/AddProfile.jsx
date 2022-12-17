@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const AddProfileSection = styled.div`
+const AddProfileDiv = styled.div`
     border-style: dotted;
     width: 100%;
     .wrapper {
@@ -100,7 +100,7 @@ export default class AddProfile extends React.Component {
 
     render() {
         return(
-            <AddProfileSection>
+            <AddProfileDiv>
                 <ul class="wrapper">
                     <li class="form-row">
                         <label for="name">Name</label>
@@ -122,7 +122,7 @@ export default class AddProfile extends React.Component {
                         <button onClick={this.handleClick}>Add Profile</button>
                     </li>
                 </ul>
-            </AddProfileSection>
+            </AddProfileDiv>
         )
     }
 }
