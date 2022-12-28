@@ -7,7 +7,7 @@ import styled from 'styled-components'
 
 const ExampleDiv = styled.div`
     display: block;
-    overflow: scroll;
+    overflow: hidden;
     border-style: dashed;
     border-color: grey;
     padding: 10px;
