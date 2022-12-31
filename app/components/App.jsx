@@ -4,16 +4,7 @@ import AddProfile from './class/AddProfile.jsx'
 import AppTitle from './functional/stateless/AppTitle.jsx'
 import Vote from './functional/hooks/Vote.jsx'
 import styled from 'styled-components'
-
-const ExampleDiv = styled.div`
-    display: block;
-    overflow: hidden;
-    border-style: dashed;
-    border-color: grey;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-`;
+import ExampleWrapper from './functional/stateless/ExampleWrapper.jsx'
 
 const ProfilesDiv = styled.div`
     display: flex;
@@ -29,7 +20,28 @@ export default class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            profiles : [] 
+            profiles : [] , 
+            expenses : [
+                {
+                  id: 'e1',
+                  title: 'Toilet Paper',
+                  amount: 94.12,
+                  date: new Date(2020, 7, 14),
+                },
+                { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
+                {
+                  id: 'e3',
+                  title: 'Car Insurance',
+                  amount: 294.67,
+                  date: new Date(2021, 2, 28),
+                },
+                {
+                  id: 'e4',
+                  title: 'New Desk (Wooden)',
+                  amount: 450,
+                  date: new Date(2021, 5, 12),
+                },
+              ]
         }
         this.addUser = this.addUser.bind(this)
     }
@@ -68,18 +80,15 @@ export default class App extends React.Component {
         return(
             <div>
                 <AppTitle name="React App"/>
-
-                <ExampleDiv>
+                <ExampleWrapper>
                     <h1>Parent / Child Component</h1>
                     <AddProfile addUser={this.addUser}/>
-
                     <ProfilesDiv>{profiles}</ProfilesDiv>
-                </ExampleDiv>
-
-                <ExampleDiv>
+                </ExampleWrapper>
+                <ExampleWrapper>
                     <h1>Hooks</h1>
                     <Vote party1="Democrats" party2="Republicans"/>
-                </ExampleDiv>
+                </ExampleWrapper>
             </div>
         )
     }

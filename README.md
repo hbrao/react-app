@@ -3,7 +3,7 @@
 Run the app using below commands
 
 `npm install`
-
+`npm run build`
 `npm run dev`
 
-Open http://127.0.0.1:3333 
+Open http://127.0.0.1:9001 

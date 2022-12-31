@@ -21,7 +21,7 @@ let Profile = ({name, age, bio, hobbies}) => (
     </PersonDiv>
 )
 
-
+//Vanilla implementation of Profile component.
 let Profile1 = function(props) {
     const {name, age, bio, hobbies} = props;
     return (

@@ -1,34 +1,49 @@
-var webpack = require('webpack')
-var path = require('path')
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
-var BUILD_DIR = path.resolve(__dirname + '/build') 
-var APP_DIR = path.resolve(__dirname + '/app') 
-
-var config = {
-  entry: APP_DIR + '/index.jsx'
-, output: {
-    path: BUILD_DIR
-  , filename: 'bundle.js'
-  , publicPath: '/'
-  }
-, devtool: 'source-map'
-, devServer: {
-    inline: true
-  , contentBase: BUILD_DIR
-  , port: 3333 
-  }
-, module: {
-    loaders: [
-      {
-        test: /\.jsx?/
-      , include: APP_DIR
-      , loader: 'babel'
-      , query: {
-          presets: ['es2015', 'react']
+module.exports = {
+    entry: {
+        app : "./app/index.jsx"
+    },
+    output: {
+        filename: "[name].bundle.js",
+        path: path.resolve(__dirname, "build")
+    },
+    optimization: {
+        splitChunks: {
+            chunks: "all"
         }
-      }
-    ]
-  }
+    },
+    plugins: [new HtmlWebpackPlugin()], 
+    devServer: {
+        contentBase: path.join(__dirname, "build"),
+        port: 9001
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /(node_modules)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-react']
+                    }
+                }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {loader: 'style-loader'},
+                    {loader: 'css-loader'}
+                ]
+            },
+            {
+                test: /\.(png|jpg)$/,
+                use: [
+                    {loader: 'url-loader'}
+                ]
+            }
+        ]
+    }
 }
-
-module.exports = config
