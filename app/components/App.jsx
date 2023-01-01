@@ -5,6 +5,8 @@ import AppTitle from './functional/stateless/AppTitle.jsx'
 import Vote from './functional/hooks/Vote.jsx'
 import styled from 'styled-components'
 import ExampleWrapper from './functional/stateless/ExampleWrapper.jsx'
+import NewExpense from './NewExpense/NewExpense.js'
+import Expenses from './Expenses/Expenses.js'
 
 const ProfilesDiv = styled.div`
     display: flex;
@@ -15,35 +17,38 @@ const ProfilesDiv = styled.div`
     padding-right: 10px;
 `
 
+const DUMMY_EXPENSES = [
+    {
+      id: 'e1',
+      title: 'Toilet Paper',
+      amount: 94.12,
+      date: new Date(2020, 7, 14),
+    },
+    { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
+    {
+      id: 'e3',
+      title: 'Car Insurance',
+      amount: 294.67,
+      date: new Date(2021, 2, 28),
+    },
+    {
+      id: 'e4',
+      title: 'New Desk (Wooden)',
+      amount: 450,
+      date: new Date(2021, 5, 12),
+    },
+  ];
+
 //Class based React Component
 export default class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             profiles : [] , 
-            expenses : [
-                {
-                  id: 'e1',
-                  title: 'Toilet Paper',
-                  amount: 94.12,
-                  date: new Date(2020, 7, 14),
-                },
-                { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
-                {
-                  id: 'e3',
-                  title: 'Car Insurance',
-                  amount: 294.67,
-                  date: new Date(2021, 2, 28),
-                },
-                {
-                  id: 'e4',
-                  title: 'New Desk (Wooden)',
-                  amount: 450,
-                  date: new Date(2021, 5, 12),
-                },
-              ]
+            expenses : []
         }
         this.addUser = this.addUser.bind(this)
+        this.addExpense = this.addExpense.bind(this)
     }
 
     //Gets called after initial rendering of the page. 
@@ -55,19 +60,25 @@ export default class App extends React.Component {
             profiles : [
                 {name: 'David', age:30, bio: 'enjoys swimming and biking', hobbies: ['swimming', 'biking']}, 
                 {name: 'Sarah', age:40, bio: 'enjoy long walks on the beach', hobbies: ['gardening', 'games']}
-            ]
+            ],
+            expenses : DUMMY_EXPENSES
         })
     }
 
     addUser(newProfile) {
         this.setState(
             {
-                profiles : this.state.profiles.concat([
-                       newProfile
-                    ]
-                )
+                profiles : this.state.profiles.concat([newProfile]),
+                expenses : this.state.expenses
             }
         )
+    }
+
+    addExpense(newExpense) {
+        this.setState({
+            profiles : this.state.profiles,
+            expenses : this.state.expenses.concat([newExpense])
+        })
     }
 
     render() {
@@ -88,6 +99,10 @@ export default class App extends React.Component {
                 <ExampleWrapper>
                     <h1>Hooks</h1>
                     <Vote party1="Democrats" party2="Republicans"/>
+                </ExampleWrapper>
+                <ExampleWrapper>
+                    <NewExpense onAddExpense={this.addExpense}/>
+                    <Expenses items={this.state.expenses}/>
                 </ExampleWrapper>
             </div>
         )
