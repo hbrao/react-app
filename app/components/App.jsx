@@ -74,6 +74,7 @@ export default class App extends React.Component {
                     <Vote party1="Democrats" party2="Republicans"/>
                 </ExampleWrapper>
                 <ExampleWrapper>
+                    <h1>Refs</h1>
                     <AddUser onAddUser={this.addUserHandler} />
                     <UsersList users={this.state.usersList} />
                 </ExampleWrapper>
