@@ -19,6 +19,7 @@ module.exports = {
         contentBase: path.join(__dirname, "build"),
         port: 9001
     },
+    devtool: 'source-map',
     module: {
         rules: [
             {
@@ -35,7 +36,7 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     {loader: 'style-loader'},
-                    {loader: 'css-loader'}
+                    {loader: 'css-loader', options: {importLoaders : 1, modules: true}}
                 ]
             },
             {

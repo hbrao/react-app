@@ -5,6 +5,8 @@ import AppTitle from './functional/stateless/AppTitle.jsx'
 import Vote from './functional/hooks/Vote.jsx'
 import styled from 'styled-components'
 import ExampleWrapper from './functional/stateless/ExampleWrapper.jsx'
+import AddUser from './functional/refs/AddUser.js'
+import UsersList from './functional/refs/UsersList.js'
 
 const ProfilesDiv = styled.div`
     display: flex;
@@ -21,29 +23,10 @@ export default class App extends React.Component {
         super(props)
         this.state = {
             profiles : [] , 
-            expenses : [
-                {
-                  id: 'e1',
-                  title: 'Toilet Paper',
-                  amount: 94.12,
-                  date: new Date(2020, 7, 14),
-                },
-                { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
-                {
-                  id: 'e3',
-                  title: 'Car Insurance',
-                  amount: 294.67,
-                  date: new Date(2021, 2, 28),
-                },
-                {
-                  id: 'e4',
-                  title: 'New Desk (Wooden)',
-                  amount: 450,
-                  date: new Date(2021, 5, 12),
-                },
-              ]
+            usersList : []
         }
         this.addUser = this.addUser.bind(this)
+        this.addUserHandler = this.addUserHandler.bind(this)
     }
 
     //Gets called after initial rendering of the page. 
@@ -60,14 +43,15 @@ export default class App extends React.Component {
     }
 
     addUser(newProfile) {
-        this.setState(
-            {
-                profiles : this.state.profiles.concat([
-                       newProfile
-                    ]
-                )
-            }
-        )
+        this.setState({ profiles: this.state.profiles.concat([newProfile]) });
+    }
+
+    addUserHandler(uName, uAge) {
+        this.setState({
+          usersList: this.state.usersList.concat([
+            { id: Math.random(), name: uName, age: uAge },
+          ]),
+        });
     }
 
     render() {
@@ -88,6 +72,10 @@ export default class App extends React.Component {
                 <ExampleWrapper>
                     <h1>Hooks</h1>
                     <Vote party1="Democrats" party2="Republicans"/>
+                </ExampleWrapper>
+                <ExampleWrapper>
+                    <AddUser onAddUser={this.addUserHandler} />
+                    <UsersList users={this.state.usersList} />
                 </ExampleWrapper>
             </div>
         )

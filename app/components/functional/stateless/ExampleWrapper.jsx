@@ -1,9 +1,9 @@
 import React from "react";
-import './ExampleWrapper.css'
+import styles from './ExampleWrapper.module.css'
 
 const ExampleWrapper = (props) => {
     return (
-        <div className="container">{props.children}</div>
+        <div className={styles.container}>{props.children}</div>
     )
 }
 

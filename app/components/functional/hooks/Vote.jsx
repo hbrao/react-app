@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, Fragment} from 'react'
 
 //React functional component
 const Vote = ({party1, party2}) => {
@@ -32,19 +32,15 @@ const Vote = ({party1, party2}) => {
     }, [winner])
 
     return(
-        <div>
+        <Fragment>
             <p>Votes for {party1} : {countParty1} </p>
             <p>Votes for {party2} : {countParty2} </p>
             <p> Leader : {winner} </p>
             <div>
-                <button onClick={() => setCountParty1(countParty1 + 1)}>
-                    Vote for { party1 }
-                </button>
-                <button onClick={() => setCountParty2(countParty2 + 1)}>
-                    Vote for { party2 }
-                </button>
+                <button onClick={() => setCountParty1(countParty1 + 1)}>Vote for { party1 }</button>
+                <button onClick={() => setCountParty2(countParty2 + 1)}>Vote for { party2 }</button>
             </div>
-        </div>
+        </Fragment>
     )
 }
 
