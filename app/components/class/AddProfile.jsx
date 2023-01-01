@@ -31,6 +31,14 @@ const AddProfileDiv = styled.div`
         color: white;
         border: 0;
     }
+    & button {
+        width: 100%;
+    }
+    @media (min-width: 768px) {
+        & button {
+            width: auto;
+        }
+    }
 `
 
 export default class AddProfile extends React.Component {

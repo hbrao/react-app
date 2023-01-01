@@ -7,12 +7,18 @@ const PersonDiv = styled.div`
     padding: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
+    & h2 {
+        color: ${props => (props.age > 30 ? 'red' : 'green')} 
+    }
+    & li:hover {
+        background-color: antiquewhite;
+    }
 `;
 
 //Arrow func, Param Destructuring a.k.a Omit render, return
 let Profile = ({name, age, bio, hobbies}) => (
-    <PersonDiv>
-        <h3>{name}</h3>
+    <PersonDiv age={age}>
+        <h2>{name}</h2>
         <p>{name} is {age} and {bio}</p>
         <h3>Hobbies</h3>
         <ul>
