@@ -7,6 +7,8 @@ import styled from 'styled-components'
 import ExampleWrapper from './components/functional/stateless/ExampleWrapper.jsx'
 import AddUser from './components/refs/AddUser.js'
 import UsersList from './components/refs/UsersList.js'
+import LoginApp from './components/functional/hooks/effect/LoginApp'
+import { AuthContextProvider } from './components/functional/hooks/effect/context/auth-context'
 
 const ProfilesDiv = styled.div`
     display: flex;
@@ -43,6 +45,10 @@ export default class App extends React.Component {
         })
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        //TODO Add an example using this
+    }
+
     addUser(newProfile) {
         this.setState({ profiles: this.state.profiles.concat([newProfile]) });
     }
@@ -64,7 +70,7 @@ export default class App extends React.Component {
 
         return(
             <div>
-                <AppTitle name="React App"/>
+                <AppTitle name="React Examples"/>
                 <ExampleWrapper>
                     <h1>Class-based Component</h1>
                     <AddProfile addUser={this.addUser}/>
@@ -78,6 +84,10 @@ export default class App extends React.Component {
                     <h1>useRef</h1>
                     <AddUser onAddUser={this.addUserHandler} />
                     <UsersList users={this.state.usersList} />
+                </ExampleWrapper>
+                <ExampleWrapper>
+                    <h1>useState, useEffect, useReducer, useContext, useRef</h1>
+                    <AuthContextProvider><LoginApp/></AuthContextProvider>
                 </ExampleWrapper>
             </div>
         )
