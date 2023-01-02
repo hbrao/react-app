@@ -63,6 +63,7 @@ export default class App extends React.Component {
 
     addUser(newProfile) {
         this.setState({ profiles: this.state.profiles.concat([newProfile]) });
+        this.setState({ usersList: this.state.usersList.concat({id: new Date().toISOString(), age: newProfile.age,  name : newProfile.name})})
     }
 
     addUserHandler(uName, uAge) {
