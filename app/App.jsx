@@ -1,12 +1,12 @@
 import React from 'react'
-import Profile from '../functional/stateless/Profile.jsx'
-import AddProfile from './AddProfile.jsx'
-import AppTitle from '../functional/stateless/AppTitle.jsx'
-import Vote from '../functional/hooks/state/Vote.jsx'
+import Profile from './components/functional/stateless/Profile.jsx'
+import AddProfile from './components/class/AddProfile.jsx'
+import AppTitle from './components/functional/stateless/AppTitle.jsx'
+import Vote from './components/functional/hooks/state/Vote.jsx'
 import styled from 'styled-components'
-import ExampleWrapper from '../functional/stateless/ExampleWrapper.jsx'
-import AddUser from '../refs/AddUser.js'
-import UsersList from '../refs/UsersList.js'
+import ExampleWrapper from './components/functional/stateless/ExampleWrapper.jsx'
+import AddUser from './components/refs/AddUser.js'
+import UsersList from './components/refs/UsersList.js'
 
 const ProfilesDiv = styled.div`
     display: flex;
@@ -30,7 +30,8 @@ export default class App extends React.Component {
     }
 
     //Gets called after initial rendering of the page. 
-    componentDidMount() {
+    //Equaivalent to useEffect(..., []) in functional based components.
+    componentDidMount() { 
         //TODO Write an ajax request to fetch the state info from APIs. 
 
         //Updating the state triggers rendering of the app component again. 
@@ -65,16 +66,16 @@ export default class App extends React.Component {
             <div>
                 <AppTitle name="React App"/>
                 <ExampleWrapper>
-                    <h1>Parent / Child Component</h1>
+                    <h1>Class-based Component</h1>
                     <AddProfile addUser={this.addUser}/>
                     <ProfilesDiv>{profiles}</ProfilesDiv>
                 </ExampleWrapper>
                 <ExampleWrapper>
-                    <h1>Hooks</h1>
+                    <h1>useState</h1>
                     <Vote party1="Democrats" party2="Republicans"/>
                 </ExampleWrapper>
                 <ExampleWrapper>
-                    <h1>Refs</h1>
+                    <h1>useRef</h1>
                     <AddUser onAddUser={this.addUserHandler} />
                     <UsersList users={this.state.usersList} />
                 </ExampleWrapper>

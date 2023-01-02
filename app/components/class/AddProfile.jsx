@@ -62,37 +62,10 @@ export default class AddProfile extends React.Component {
     }
 
     //Event handlers
-    handleName(e) {
-        this.setState(
-            {
-                name: e.target.value
-            }
-        )
-    }
-
-    handleAge(e) {
-        this.setState(
-            {
-                age: e.target.value
-            }
-        )
-    }
-
-    handleBio(e) {
-        this.setState(
-            {
-                bio: e.target.value
-            }
-        )
-    }
-
-    handleHobby(e) {
-        this.setState(
-            {
-                hobby: e.target.value
-            }
-        )
-    }
+    handleName(e) {this.setState({name: e.target.value,});}
+    handleAge(e) {this.setState({age: e.target.value,});}
+    handleBio(e) {this.setState({bio: e.target.value,});}
+    handleHobby(e) {this.setState({hobby: e.target.value,});}
 
     handleClick(e) {
         let newProfile = {
