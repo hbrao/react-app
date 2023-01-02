@@ -1,12 +1,12 @@
 import React from 'react'
-import Profile from './functional/stateless/Profile.jsx'
-import AddProfile from './class/AddProfile.jsx'
-import AppTitle from './functional/stateless/AppTitle.jsx'
-import Vote from './functional/hooks/Vote.jsx'
+import Profile from '../functional/stateless/Profile.jsx'
+import AddProfile from './AddProfile.jsx'
+import AppTitle from '../functional/stateless/AppTitle.jsx'
+import Vote from '../functional/hooks/effect/Vote.jsx'
 import styled from 'styled-components'
-import ExampleWrapper from './functional/stateless/ExampleWrapper.jsx'
-import AddUser from './functional/refs/AddUser.js'
-import UsersList from './functional/refs/UsersList.js'
+import ExampleWrapper from '../functional/stateless/ExampleWrapper.jsx'
+import AddUser from '../refs/AddUser.js'
+import UsersList from '../refs/UsersList.js'
 
 const ProfilesDiv = styled.div`
     display: flex;
