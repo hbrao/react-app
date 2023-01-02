@@ -9,6 +9,8 @@ import AddUser from './components/refs/AddUser.js'
 import UsersList from './components/refs/UsersList.js'
 import LoginApp from './components/functional/hooks/effect/LoginApp'
 import { AuthContextProvider } from './components/functional/hooks/effect/context/auth-context'
+import UsersContext from './components/class/users-context.js'
+import UserFinder from './components/class/UserFinder.js'
 
 const ProfilesDiv = styled.div`
     display: flex;
@@ -18,6 +20,18 @@ const ProfilesDiv = styled.div`
     margin-bottom: 10px;
     padding-right: 10px;
 `
+
+const DUMMY_USERS = [
+    { id: 'u1', age: 30,  name: 'David' },
+    { id: 'u2', age:40, name: 'Sarah' },
+    { id: 'u3', age:60, name: 'Mark' },
+  ];
+
+const DUMMY_PROFILES = [
+    {name: 'David', age:30, bio: 'enjoys swimming and biking', hobbies: ['swimming', 'biking']}, 
+    {name: 'Sarah', age:40, bio: 'enjoy long walks on the beach', hobbies: ['gardening', 'games']},
+    {name: 'Mark', age:60, bio: 'enjoy long walks on the beach', hobbies: ['gardening', 'games']}
+]
 
 //Class based React Component
 export default class App extends React.Component {
@@ -38,10 +52,8 @@ export default class App extends React.Component {
 
         //Updating the state triggers rendering of the app component again. 
         this.setState({
-            profiles : [
-                {name: 'David', age:30, bio: 'enjoys swimming and biking', hobbies: ['swimming', 'biking']}, 
-                {name: 'Sarah', age:40, bio: 'enjoy long walks on the beach', hobbies: ['gardening', 'games']}
-            ]
+            usersList : DUMMY_USERS,
+            profiles : DUMMY_PROFILES
         })
     }
 
@@ -87,7 +99,15 @@ export default class App extends React.Component {
                 </ExampleWrapper>
                 <ExampleWrapper>
                     <h1>useState, useEffect, useReducer, useContext, useRef</h1>
-                    <AuthContextProvider><LoginApp/></AuthContextProvider>
+                    <AuthContextProvider>
+                        <LoginApp/>
+                    </AuthContextProvider>
+                </ExampleWrapper>
+                <ExampleWrapper>
+                    <h1>componentDidCatch</h1>
+                    <UsersContext.Provider value={{users: DUMMY_USERS}}>
+                        <UserFinder />
+                    </UsersContext.Provider>
                 </ExampleWrapper>
             </div>
         )
