@@ -1,11 +1,10 @@
-### [ReactJS Fundamentals, 3rd Edition](https://learning.oreilly.com/videos/reactjs-fundamentals-3rd/9780136612117)
+### [ReactJS Fundamentals](https://learning.oreilly.com/videos/reactjs-fundamentals-3rd/9780136612117)
+### [React Complete Guide](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
 
-Run the app using below commands
+Start the app using following commands
 
-`npm install`
-
-`npm run build`
-
-`npm run dev`
-
-Open http://127.0.0.1:9001 
+```
+npm install
+npm run build
+npm run dev
+```
