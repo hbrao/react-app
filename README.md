@@ -4,6 +4,7 @@
 Start the app using following commands
 
 ```
+export NODE_OPTIONS=--openssl-legacy-provider
 npm install
 npm run build
 npm run dev
